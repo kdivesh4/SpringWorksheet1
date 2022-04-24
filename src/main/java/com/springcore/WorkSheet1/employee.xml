@@ -3,28 +3,64 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns:context="http://www.springframework.org/schema/context"
  xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:c="http://www.springframework.org/schema/c"
  xsi:schemaLocation="http://www.springframework.org/schema/beans
  http://www.springframework.org/schema/beans/spring-beans.xsd
  http://www.springframework.org/schema/context
  http://www.springframework.org/schema/context/spring-context.xsd">
  
+ 
+
+<!-- 1. using Setter Injection with value as Attributes	-->
+ 
  <bean name="add1" class="com.springcore.WorkSheet1.Address">
  	<property name="streetNumber" value=" 5 "/>
  	<property name="city" value="New Delhi " />
  	<property name="country" value="India " />
- </bean>
  
- <bean name="emp1" class="com.springcore.WorkSheet1.Employee" >	
+ </bean>
+ <bean name="emp1" class="com.springcore.WorkSheet1.Employee">
  	<property name="name" value="Divesh Kumar"/>
  	<property name="age" value="24" /> 	
  	<property name="address" ref="add1"/>
  	 <property name="number">
  		<list>
- 			<value>4567867659</value>
- 			<value>9785678643</value>
+ 			<value>4123456789</value>
+ 			<value>9987654324</value>
  		</list>
  	</property>
- 
  </bean>
  
+ <!--   #2. using p-schema  -->
+ <bean name="add2" class="com.springcore.WorkSheet1.Address" p:streetNumber="6" p:city="Lucknow" p:country="India" />
+ <bean name="emp2" class="com.springcore.WorkSheet1.Employee" p:name="Aman" p:age="24" p:address-ref="add2" p:number="123" />
+ 
+ 
+  
+
+<!--  #3. using constructor argument -->
+ 
+ <bean name="add3" class="com.springcore.WorkSheet1.Address">
+  <constructor-arg value="7" />
+  <constructor-arg value="Chennai" />
+  <constructor-arg value="India" />
+ </bean>
+ 
+ <bean name="emp3" class="com.springcore.WorkSheet1.Employee">
+ 	<constructor-arg value="Anshu"/>
+ 	<constructor-arg value="25"/>
+ 	<constructor-arg ref="add3"/>
+ 	<constructor-arg>
+ 		<list>
+ 			<value>5678665906</value>
+ 			<value>7856432056</value>
+ 		</list>
+ 	</constructor-arg>
+ </bean>
+ 
+ 
+ <!--  #4. Using c-schema -->
+ <bean name="add4" class="com.springcore.WorkSheet1.Address" c:streetNumber="8" c:city="Chandigarh" c:country="India" />
+ <bean name="emp4" class="com.springcore.WorkSheet1.Employee" c:name="Pawandeep" c:age="26" c:address-ref="add4" c:number="9"/>
+
  </beans>

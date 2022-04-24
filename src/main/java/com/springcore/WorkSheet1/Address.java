@@ -25,6 +25,20 @@ public class Address {
 		this.country = country;
 	}
 	
+	
+	
+	public Address() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Address(String streetNumber, String city, String country) {
+		super();
+		this.streetNumber = streetNumber;
+		this.city = city;
+		this.country = country;
+	}
+
 	@Override
 	public String toString() {
 		return "Address [streetNumber=" + streetNumber + ", city=" + city + ", country=" + country + "]";
